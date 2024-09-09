@@ -6,7 +6,7 @@ from datetime import datetime
 
 stocks=['ADBL','NABIL','NIFRA','SANIMA','EBL']
 entries='4000'
-start_dates=['2010-09-02','2011-03-20','2021-02-14','2012-02-27','2011-03-20']
+start_dates=['2019-12-20','2011-03-20','2021-02-14','2012-02-27','2011-03-20']
 today=str(datetime.today().date())
 
 for stock,start_date in zip(stocks,start_dates):
@@ -28,7 +28,8 @@ for stock,start_date in zip(stocks,start_dates):
     temp.append(float(row['differenceRs']))
     temp.append(float(row['percentChange']))
     data.append(temp)
-  head=['Date','High','Low','Close','noOfTransaction','volume','Amount','prevClose','change','chgPercent']
+  head=['date','high','low','close','noOfTransaction','volume','amount','open','change','chgPercent']
+  data.reverse()
   df=pandas.DataFrame(data,columns=head)
   df.to_csv('data/'+stock+'.csv',index=False)
   
